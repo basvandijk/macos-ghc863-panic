@@ -50,8 +50,8 @@ Some observations:
   So it seems to have something to do with how `nixpkgs` builds Haskell packages
   with GHC-8.6 on MacOS.
 
-* When I run the build in verbose mode (`./Setup build -v`) I see that building
-  the static library for `b` actually causes the panic:
+* **When I run the build in verbose mode (`./Setup build -v`) I see that building
+  the static library for `b` actually causes the panic:**
 
         /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/bin/ghc \
           -staticlib \
