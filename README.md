@@ -13,6 +13,21 @@ This repo is a minimal test-case for the following GHC panic described in
 To reproduce execute `nix-build -A haskellPackages.b`.
 A full log is copied below.
 
+
+Design
+======
+
+* We have two Haskell packages: `a` and `b` where `b` depends on `a`.
+
+* `a` exposes an empty module `A`.
+
+* `b` exposes a minimal module `B` which justs imports `A`.
+
+* `a` specifies to link with `libc++` (`extra-libraries: c++`).
+
+* Building `b` with Nix triggers the panic.
+
+
 Observations
 ============
 
@@ -34,6 +49,7 @@ Some observations:
 
   So it seems to have something to do with how `nixpkgs` builds Haskell packages
   with GHC-8.6 on MacOS.
+
 
 Full log
 ========
