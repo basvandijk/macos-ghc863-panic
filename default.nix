@@ -8,8 +8,24 @@ import nixpkgs {
     (final: previous: {
       haskell = previous.haskell // {
         packageOverrides = self: super: {
-          a = super.callCabal2nix "a" ./a {};
-          b = super.callCabal2nix "b" ./b {};
+          a = super.callPackage ({ mkDerivation, base, stdenv }:
+            mkDerivation {
+              pname = "a";
+              version = "0.1.0.0";
+              src = ./a;
+              libraryHaskellDepends = [ base ];
+              license = stdenv.lib.licenses.bsd3;
+            }
+          ) {};
+          b = super.callPackage ({ mkDerivation, a, base, stdenv }:
+            mkDerivation {
+              pname = "b";
+              version = "0.1.0.0";
+              src = ./b;
+              libraryHaskellDepends = [ a base ];
+              license = stdenv.lib.licenses.bsd3;
+            }
+          ) {};
         };
       };
     })

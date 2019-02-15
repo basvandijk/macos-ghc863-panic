@@ -73,9 +73,9 @@ Full log
 
     > nix-build -A haskellPackages.b
     these derivations will be built:
-      /nix/store/1v6li3mshvi3c44lcqdsvymjjmrcna42-a-0.1.0.0.drv
-      /nix/store/w136ni99zv0vny12wx4p10wlycv1alap-b-0.1.0.0.drv
-    building '/nix/store/1v6li3mshvi3c44lcqdsvymjjmrcna42-a-0.1.0.0.drv'...
+      /nix/store/vmqd5wl8iba1gh83y1fi9hx8rik30rpm-a-0.1.0.0.drv
+      /nix/store/wvlxd09hgs50qvb6n45ifiw519b5pkqj-b-0.1.0.0.drv
+    building '/nix/store/vmqd5wl8iba1gh83y1fi9hx8rik30rpm-a-0.1.0.0.drv'...
     setupCompilerEnvironmentPhase
     Build with /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3.
     unpacking sources
@@ -87,7 +87,7 @@ Full log
     [1 of 1] Compiling Main             ( /nix/store/4mdp8nhyfddh7bllbi7xszz7k9955n79-Setup.hs, /private/tmp/nix-build-a-0.1.0.0.drv-0/Main.o )
     Linking Setup ...
     configuring
-    configureFlags: --verbose --prefix=/nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0 --libdir=$prefix/lib/$compiler --libsubdir=$abi/$libname --docdir=/nix/store/hmyd21lrdl02ckz9xisy3d0ijrmf1z53-a-0.1.0.0-doc/share/doc/a-0.1.0.0 --with-gcc=clang --package-db=/private/tmp/nix-build-a-0.1.0.0.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=exported-functions --disable-profiling --enable-shared --disable-coverage --enable-static --disable-executable-dynamic --enable-tests --disable-benchmarks --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/include --extra-lib-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/lib --extra-include-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/1sh5ry0k291fx2sbn9p0611v7cc45xpv-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/r6aijfn3pi3k11rddrw9531pwglhrblr-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/0lqb3vjib31xyr8iadc8rib9bpl8mf5m-ncurses-6.1-20181027/lib --extra-lib-dirs=/nix/store/0jn6j8ya9zffqd427rjhalhrfqcldalf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/mnr82qqf4pkwbvzpvkzp9lcxb6f0b456-swift-corefoundation/Library/Frameworks
+    configureFlags: --verbose --prefix=/nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0 --libdir=$prefix/lib/$compiler --libsubdir=$abi/$libname --docdir=/nix/store/4ynwmacplvzxnjnjg8yq7m76j802i3jq-a-0.1.0.0-doc/share/doc/a-0.1.0.0 --with-gcc=clang --package-db=/private/tmp/nix-build-a-0.1.0.0.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=exported-functions --disable-profiling --enable-shared --disable-coverage --enable-static --disable-executable-dynamic --enable-tests --disable-benchmarks --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/include --extra-lib-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/lib --extra-include-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/1sh5ry0k291fx2sbn9p0611v7cc45xpv-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/r6aijfn3pi3k11rddrw9531pwglhrblr-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/0lqb3vjib31xyr8iadc8rib9bpl8mf5m-ncurses-6.1-20181027/lib --extra-lib-dirs=/nix/store/0jn6j8ya9zffqd427rjhalhrfqcldalf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/mnr82qqf4pkwbvzpvkzp9lcxb6f0b456-swift-corefoundation/Library/Frameworks
     Using Parsec parser
     Configuring a-0.1.0.0...
     Dependency base -any: using base-4.12.0.0
@@ -102,21 +102,21 @@ Full log
         definite a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 depends base-4.12.0.0
     Using Cabal-2.4.0.1 compiled by ghc-8.6
     Using compiler: ghc-8.6.3
-    Using install prefix: /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0
+    Using install prefix: /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0
     Executables installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/bin
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/bin
     Libraries installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1
     Dynamic Libraries installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3
     Private executables installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/libexec/x86_64-osx-ghc-8.6.3/a-0.1.0.0
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/libexec/x86_64-osx-ghc-8.6.3/a-0.1.0.0
     Data files installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/share/x86_64-osx-ghc-8.6.3/a-0.1.0.0
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/share/x86_64-osx-ghc-8.6.3/a-0.1.0.0
     Documentation installed in:
-    /nix/store/hmyd21lrdl02ckz9xisy3d0ijrmf1z53-a-0.1.0.0-doc/share/doc/a-0.1.0.0
+    /nix/store/4ynwmacplvzxnjnjg8yq7m76j802i3jq-a-0.1.0.0-doc/share/doc/a-0.1.0.0
     Configuration files installed in:
-    /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/etc
+    /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/etc
     No alex found
     Using ar found on system at:
     /nix/store/6fxfcpcb1jlgzkvkdgzja3rkm46200kd-cctools-binutils-darwin/bin/ar
@@ -200,14 +200,14 @@ Full log
         Module header
     Documentation created: dist/doc/html/a/index.html, dist/doc/html/a/a.txt
     installing
-    Installing library in /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1
+    Installing library in /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1
     post-installation fixup
     strip is /nix/store/6fxfcpcb1jlgzkvkdgzja3rkm46200kd-cctools-binutils-darwin/bin/strip
-    stripping (with command strip and flags -S) in /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0/lib
-    patching script interpreter paths in /nix/store/q3npinbdm45vnnly5cn8vpd9r32k3h6l-a-0.1.0.0
+    stripping (with command strip and flags -S) in /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0/lib
+    patching script interpreter paths in /nix/store/cp8wh6bgrmmaq0z4alrh7bgdhscvh14r-a-0.1.0.0
     strip is /nix/store/6fxfcpcb1jlgzkvkdgzja3rkm46200kd-cctools-binutils-darwin/bin/strip
-    patching script interpreter paths in /nix/store/hmyd21lrdl02ckz9xisy3d0ijrmf1z53-a-0.1.0.0-doc
-    building '/nix/store/w136ni99zv0vny12wx4p10wlycv1alap-b-0.1.0.0.drv'...
+    patching script interpreter paths in /nix/store/4ynwmacplvzxnjnjg8yq7m76j802i3jq-a-0.1.0.0-doc
+    building '/nix/store/wvlxd09hgs50qvb6n45ifiw519b5pkqj-b-0.1.0.0.drv'...
     setupCompilerEnvironmentPhase
     Build with /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3.
     unpacking sources
@@ -219,7 +219,7 @@ Full log
     [1 of 1] Compiling Main             ( /nix/store/4mdp8nhyfddh7bllbi7xszz7k9955n79-Setup.hs, /private/tmp/nix-build-b-0.1.0.0.drv-0/Main.o )
     Linking Setup ...
     configuring
-    configureFlags: --verbose --prefix=/nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0 --libdir=$prefix/lib/$compiler --libsubdir=$abi/$libname --docdir=/nix/store/fzgfmw5d259x958j8ij4ribxkp0p46fp-b-0.1.0.0-doc/share/doc/b-0.1.0.0 --with-gcc=clang --package-db=/private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=exported-functions --disable-profiling --enable-shared --disable-coverage --enable-static --disable-executable-dynamic --enable-tests --disable-benchmarks --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/include --extra-lib-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/lib --extra-include-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/1sh5ry0k291fx2sbn9p0611v7cc45xpv-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/r6aijfn3pi3k11rddrw9531pwglhrblr-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/0lqb3vjib31xyr8iadc8rib9bpl8mf5m-ncurses-6.1-20181027/lib --extra-lib-dirs=/nix/store/0jn6j8ya9zffqd427rjhalhrfqcldalf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/mnr82qqf4pkwbvzpvkzp9lcxb6f0b456-swift-corefoundation/Library/Frameworks
+    configureFlags: --verbose --prefix=/nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0 --libdir=$prefix/lib/$compiler --libsubdir=$abi/$libname --docdir=/nix/store/6hmhkzq12c1r0g7sdlkky0jr07jcwq1j-b-0.1.0.0-doc/share/doc/b-0.1.0.0 --with-gcc=clang --package-db=/private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=exported-functions --disable-profiling --enable-shared --disable-coverage --enable-static --disable-executable-dynamic --enable-tests --disable-benchmarks --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/include --extra-lib-dirs=/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/lib --extra-include-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/1sh5ry0k291fx2sbn9p0611v7cc45xpv-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/r6aijfn3pi3k11rddrw9531pwglhrblr-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/0lqb3vjib31xyr8iadc8rib9bpl8mf5m-ncurses-6.1-20181027/lib --extra-lib-dirs=/nix/store/0jn6j8ya9zffqd427rjhalhrfqcldalf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/mnr82qqf4pkwbvzpvkzp9lcxb6f0b456-swift-corefoundation/Library/Frameworks
     Using Parsec parser
     Configuring b-0.1.0.0...
     Dependency a -any: using a-0.1.0.0
@@ -240,21 +240,21 @@ Full log
             depends base-4.12.0.0
     Using Cabal-2.4.0.1 compiled by ghc-8.6
     Using compiler: ghc-8.6.3
-    Using install prefix: /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0
+    Using install prefix: /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0
     Executables installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/bin
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/bin
     Libraries installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/b-0.1.0.0-1072cnXtut6ENJ494A3pWo
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3/b-0.1.0.0-1072cnXtut6ENJ494A3pWo
     Dynamic Libraries installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/lib/ghc-8.6.3/x86_64-osx-ghc-8.6.3
     Private executables installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/libexec/x86_64-osx-ghc-8.6.3/b-0.1.0.0
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/libexec/x86_64-osx-ghc-8.6.3/b-0.1.0.0
     Data files installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/share/x86_64-osx-ghc-8.6.3/b-0.1.0.0
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/share/x86_64-osx-ghc-8.6.3/b-0.1.0.0
     Documentation installed in:
-    /nix/store/fzgfmw5d259x958j8ij4ribxkp0p46fp-b-0.1.0.0-doc/share/doc/b-0.1.0.0
+    /nix/store/6hmhkzq12c1r0g7sdlkky0jr07jcwq1j-b-0.1.0.0-doc/share/doc/b-0.1.0.0
     Configuration files installed in:
-    /nix/store/zj9nq11n2zvdyp7dhrahanmals1dp91k-b-0.1.0.0/etc
+    /nix/store/mzjvm99wbz9fbbpgm0lr5a5bpxn41qqp-b-0.1.0.0/etc
     No alex found
     Using ar found on system at:
     /nix/store/6fxfcpcb1jlgzkvkdgzja3rkm46200kd-cctools-binutils-darwin/bin/ar
@@ -308,5 +308,5 @@ Full log
 
     Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
 
-    builder for '/nix/store/w136ni99zv0vny12wx4p10wlycv1alap-b-0.1.0.0.drv' failed with exit code 1
-    error: build of '/nix/store/w136ni99zv0vny12wx4p10wlycv1alap-b-0.1.0.0.drv' failed
+    builder for '/nix/store/wvlxd09hgs50qvb6n45ifiw519b5pkqj-b-0.1.0.0.drv' failed with exit code 1
+    error: build of '/nix/store/wvlxd09hgs50qvb6n45ifiw519b5pkqj-b-0.1.0.0.drv' failed
