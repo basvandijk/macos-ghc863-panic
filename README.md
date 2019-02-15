@@ -50,6 +50,20 @@ Some observations:
   So it seems to have something to do with how `nixpkgs` builds Haskell packages
   with GHC-8.6 on MacOS.
 
+* When I run the build in verbose mode (`./Setup build -v`) I see that building
+  the static library for `b` actually causes the panic:
+
+        /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/bin/ghc -staticlib '-L/nix/store/jv40yw2ny28nnpbf860aaqq1dhga0f0r-libc++-5.0.2/lib' '-L/nix/store/hgqs9r48niq50xzvgnz7prbykizpy4mk-libc++abi-5.0.2/lib' -L/nix/store/r6aijfn3pi3k11rddrw9531pwglhrblr-compiler-rt-5.0.2/lib -L/nix/store/0lqb3vjib31xyr8iadc8rib9bpl8mf5m-ncurses-6.1-20181027/lib -L/nix/store/0jn6j8ya9zffqd427rjhalhrfqcldalf-gmp-6.1.2/lib -L/nix/store/r0wvw1pk9sdylb308zn4hp5j0r6v6ak6-libiconv-osx-10.11.6/lib -this-unit-id b-0.1.0.0-1072cnXtut6ENJ494A3pWo -hide-all-packages -no-auto-link-packages -no-user-package-db -package-db /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d -package-db dist/package.conf.inplace -package-id a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 -package-id base-4.12.0.0 dist/build/B.o -o dist/build/libHSb-0.1.0.0-1072cnXtut6ENJ494A3pWo-ghc8.6.3.a -j1
+        ghc: panic! (the 'impossible' happened)
+          (GHC version 8.6.3 for x86_64-apple-darwin):
+                Data.Binary.Get.runGet at position 8: Invalid magic number "INPUT(-l"
+        CallStack (from HasCallStack):
+          error, called at libraries/binary/src/Data/Binary/Get.hs:351:5 in binary-0.8.6.0:Data.Binary.Get
+
+  Indeed, when I disable building a static library for `b`
+  (`enableStaticLibraries = false;`) the build succeeds.
+
+
 
 Impact
 ======
