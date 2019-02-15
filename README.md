@@ -51,6 +51,23 @@ Some observations:
   with GHC-8.6 on MacOS.
 
 
+Impact
+======
+
+* Packages that depend on the
+  [double-conversion](http://hackage.haskell.org/package/double-conversion)
+  package fail to build because `double-conversion` specifies:
+  `extra-libraries: c++`.
+
+* Packages that depend on `opencv` like `opencv-extra` [fail to
+  build](https://github.com/LumiGuide/haskell-opencv/issues/138)
+  because `opencv` specifies: `extra-libraries: c++`.
+
+* I have seen two private code bases that have packages that specify
+  `extra-libraries: c++`. This means that any code that depends on
+  those packages fail to build.
+
+
 Full log
 ========
 
