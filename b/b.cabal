@@ -1,0 +1,12 @@
+cabal-version: 2.0
+name:          b
+version:       0.1.0.0
+license:       BSD3
+author:        Bas van Dijk
+maintainer:    v.dijk.bas@gmail.com
+build-type:    Simple
+
+library
+  exposed-modules:  B
+  build-depends:    base, a
+  default-language: Haskell2010
