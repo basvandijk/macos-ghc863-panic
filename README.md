@@ -95,7 +95,9 @@ Some observations:
         CallStack (from HasCallStack):
           error, called at libraries/binary/src/Data/Binary/Get.hs:351:5 in binary-0.8.6.0:Data.Binary.Get
 
-  The most notable difference are all the included libraries.
+  The most notable difference are all the included libraries. 
+  However, adding all the `-L...` arguments to the `ghc -staticlib` command 
+  from the Haskell Platform doesn't trigger the panic.
 
 * Note that even though GHC panics the static lib
   `libHSb-0.1.0.0-1072cnXtut6ENJ494A3pWo.a` is created. You can observe this by
