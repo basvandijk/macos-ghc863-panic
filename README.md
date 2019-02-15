@@ -1,9 +1,11 @@
 GHC Panic
 =========
 
-This repo is a minimal test-case for the following GHC panic described in
-[GHC issue #16130](https://ghc.haskell.org/trac/ghc/ticket/16130).
+This repo is a minimal test-case for the GHC panic described in [GHC
+issue #16130](https://ghc.haskell.org/trac/ghc/ticket/16130) which is triggered
+when building a static library from a Nix builder:
 
+    > ghc -staticlib ...
     ghc: panic! (the 'impossible' happened)
           (GHC version 8.6.3 for x86_64-apple-darwin):
                 Data.Binary.Get.runGet at position 8: Invalid magic number "INPUT(-l"
@@ -33,9 +35,15 @@ Observations
 
 Some observations:
 
-* This only happens on MacOS. The build completes successfully on Linux.
+* This only happens on MacOS, using GHC-8.6.3 and building with
+  `nix-build`. Note that the Nix builder enables static libraries by default.
 
-* This only happens when building with GHC-8.6.3.
+* The panic can also be triggered from inside a `nix-shell`:
+
+  `nix-shell -A haskellPackages.b.env --run \
+    'cd b; cabal configure --enable-static; cabal build'`
+
+* The build completes successfully on Linux.
 
 * The build completes successfully with GHC < 8.6 like GHC-8.4.4:
   `nix-build -A haskell.packages.ghc844.b`
@@ -43,17 +51,24 @@ Some observations:
 * When I remove the `extra-libraries: c++` field in `a.cabal` the build
   completes successfully.
 
-* ~When I build manually using `cabal` the build completes successfully:~
+* The build completes successfully when not using Nix. I tested with building
+  the `a` and `b` packages using the Haskell Platform for MacOS. They build
+  without problems. Here's the command that's executed for building the static
+  library:
 
-  ~`nix-shell -A haskellPackages.b.env --run 'cd b; cabal build'`~
+        /usr/local/bin/ghc \
+          -staticlib \
+          -this-unit-id b-0.1.0.0-1072cnXtut6ENJ494A3pWo \
+          -hide-all-packages \
+          -no-auto-link-packages \
+          -package-db dist/package.conf.inplace \
+          -package-id a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 \
+          -package-id base-4.12.0.0 \
+          dist/build/B.o \
+          -o dist/build/libHSb-0.1.0.0-1072cnXtut6ENJ494A3pWo-ghc8.6.3.a
 
-  As I discovered below, the panic occurs while creating the static lib. 
-  I get the same panic when building manually with `cabal`:
-  
-  `nix-shell -A haskellPackages.b.env --run 'cd b; cabal configure --enable-static; cabal build'`
-
-* **When I run the build in verbose mode (`./Setup build -v`) I see that building
-  the static library for `b` actually causes the panic:**
+* Compare the previous to the following similar command that is run from a Nix
+  builder:
 
         /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/bin/ghc \
           -staticlib \
@@ -80,42 +95,15 @@ Some observations:
         CallStack (from HasCallStack):
           error, called at libraries/binary/src/Data/Binary/Get.hs:351:5 in binary-0.8.6.0:Data.Binary.Get
 
-  Indeed, when I disable building a static library for `b`
+  The most notable difference are all the included libraries.
+
+* Note that even though GHC panics the static lib
+  `libHSb-0.1.0.0-1072cnXtut6ENJ494A3pWo.a` is created. You can observe this by
+  invoking `nix-build` with `--keep-failed` so that the build directory is kept
+  after a failure.
+
+* Unsurprisingly, when I disable building a static library for `b`
   (`enableStaticLibraries = false;`) the build succeeds.
-
-  Note that when I add the `-v3` flag to that last `ghc -staticlib` invocation I
-  see the following verbose output:
-
-        Glasgow Haskell Compiler, Version 8.6.3, stage 2 booted by GHC version 8.2.2
-        Using binary package database: /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/lib/ghc-8.6.3/package.conf.d/package.cache
-        Using binary package database: /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d/package.cache
-        Using binary package database: /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d/package.cache
-        Using binary package database: dist/package.conf.inplace/package.cache
-        package flags [-package-id a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1{unit a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 True ([])},
-                       -package-id base-4.12.0.0{unit base-4.12.0.0 True ([])}]
-        loading package database /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/lib/ghc-8.6.3/package.conf.d
-        loading package database /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d
-        loading package database /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d
-        package a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 overrides a previously defined package
-        loading package database dist/package.conf.inplace
-        wired-in package ghc-prim mapped to ghc-prim-0.5.3
-        wired-in package integer-gmp mapped to integer-gmp-1.0.2.0
-        wired-in package base mapped to base-4.12.0.0
-        wired-in package rts mapped to rts
-        wired-in package template-haskell mapped to template-haskell-2.14.0.0
-        wired-in package ghc mapped to ghc-8.6.3
-        *** Deleting temp files:
-        Deleting:
-        *** Deleting temp dirs:
-        Deleting:
-        ghc: panic! (the 'impossible' happened)
-          (GHC version 8.6.3 for x86_64-apple-darwin):
-                Data.Binary.Get.runGet at position 8: Invalid magic number "INPUT(-l"
-        CallStack (from HasCallStack):
-          error, called at libraries/binary/src/Data/Binary/Get.hs:351:5 in binary-0.8.6.0:Data.Binary.Get
-
-* Note that even though GHC panics the static lib `libHSb-0.1.0.0-1072cnXtut6ENJ494A3pWo.a` is created.
-  You can observe this by invoking `nix-build` with `--keep-failed` so that the build directory is kept after a failure.
 
 
 Impact
