@@ -43,12 +43,14 @@ Some observations:
 * When I remove the `extra-libraries: c++` field in `a.cabal` the build
   completes successfully.
 
-* When I build manually using `cabal` the build completes successfully:
+* ~When I build manually using `cabal` the build completes successfully:~
 
-  `nix-shell -A haskellPackages.b.env --run 'cd b; cabal build'`
+  ~`nix-shell -A haskellPackages.b.env --run 'cd b; cabal build'`~
 
-  So it seems to have something to do with how `nixpkgs` builds Haskell packages
-  with GHC-8.6 on MacOS.
+  As I discovered below, the panic occurs while creating the static lib. 
+  I get the same panic when building manually with `cabal`:
+  
+  `nix-shell -A haskellPackages.b.env --run 'cd b; cabal configure --enable-static; cabal build'`
 
 * **When I run the build in verbose mode (`./Setup build -v`) I see that building
   the static library for `b` actually causes the panic:**
