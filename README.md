@@ -39,8 +39,8 @@ Some observations:
 
 * The panic can also be triggered from inside a `nix-shell`:
 
-  `nix-shell -A haskellPackages.b.env --run \
-    'cd b; cabal configure --enable-static; cabal build'`
+      nix-shell -A haskellPackages.b.env --run \
+        'cd b; cabal configure --enable-static; cabal build'
 
 * The build completes successfully on Linux.
 
