@@ -14,6 +14,7 @@ when building a static library from a Nix builder:
 
 To reproduce execute `nix-build -A haskellPackages.b`.
 
+Corrersponding NixOS issue: [#55848](https://github.com/NixOS/nixpkgs/issues/55848).
 
 Design
 ======
