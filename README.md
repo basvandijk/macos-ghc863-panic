@@ -81,6 +81,37 @@ Some observations:
   Indeed, when I disable building a static library for `b`
   (`enableStaticLibraries = false;`) the build succeeds.
 
+  Note that when I add the `-v3` flag to that last `ghc -staticlib` invocation I
+  see the following verbose output:
+
+        Glasgow Haskell Compiler, Version 8.6.3, stage 2 booted by GHC version 8.2.2
+        Using binary package database: /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/lib/ghc-8.6.3/package.conf.d/package.cache
+        Using binary package database: /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d/package.cache
+        Using binary package database: /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d/package.cache
+        Using binary package database: dist/package.conf.inplace/package.cache
+        package flags [-package-id a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1{unit a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 True ([])},
+                       -package-id base-4.12.0.0{unit base-4.12.0.0 True ([])}]
+        loading package database /nix/store/r348h4r4nsmc534239cgq7m51kyyzzrl-ghc-8.6.3/lib/ghc-8.6.3/package.conf.d
+        loading package database /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d
+        loading package database /private/tmp/nix-build-b-0.1.0.0.drv-0/package.conf.d
+        package a-0.1.0.0-CQnIe1qPUVV66BMgXSBVV1 overrides a previously defined package
+        loading package database dist/package.conf.inplace
+        wired-in package ghc-prim mapped to ghc-prim-0.5.3
+        wired-in package integer-gmp mapped to integer-gmp-1.0.2.0
+        wired-in package base mapped to base-4.12.0.0
+        wired-in package rts mapped to rts
+        wired-in package template-haskell mapped to template-haskell-2.14.0.0
+        wired-in package ghc mapped to ghc-8.6.3
+        *** Deleting temp files:
+        Deleting:
+        *** Deleting temp dirs:
+        Deleting:
+        ghc: panic! (the 'impossible' happened)
+          (GHC version 8.6.3 for x86_64-apple-darwin):
+                Data.Binary.Get.runGet at position 8: Invalid magic number "INPUT(-l"
+        CallStack (from HasCallStack):
+          error, called at libraries/binary/src/Data/Binary/Get.hs:351:5 in binary-0.8.6.0:Data.Binary.Get
+
 
 
 Impact
